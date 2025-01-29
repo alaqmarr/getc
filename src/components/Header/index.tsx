@@ -41,8 +41,8 @@ const Header = () => {
     <>
       <header
         className={`header left-0 top-0 z-40 flex w-full items-center ${sticky
-            ? "dark:bg-gray-dark dark:shadow-sticky-dark fixed z-[9999] bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm transition"
-            : "absolute bg-transparent"
+          ? "dark:bg-gray-dark dark:shadow-sticky-dark fixed z-[9999] bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm transition"
+          : "absolute bg-transparent"
           }`}
       >
         <div className="container">
@@ -93,18 +93,38 @@ const Header = () => {
                 <nav
                   id="navbarCollapse"
                   className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white px-6 py-4 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${navbarOpen
-                      ? "visibility top-full opacity-100"
-                      : "invisible top-[120%] opacity-0"
+                    ? "visibility top-full opacity-100"
+                    : "invisible top-[120%] opacity-0"
                     }`}
                 >
                   <ul className="block lg:flex lg:space-x-12">
+                    <li className="group relative">
+                      <Link
+                        href="/"
+                        className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${usePathName === `/`
+                          ? "text-primary dark:text-white"
+                          : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                          }`}
+                      >
+                        Home
+                      </Link>
+                    </li>
+
+                    <li className="group relative">
+                      <Link href="/about" className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${usePathName === `/about`
+                        ? "text-primary dark:text-white"
+                        : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                        }`}>
+                        About Us
+                      </Link>
+                    </li>
                     {categories.map((category, index) => (
                       <li key={index} className="group relative">
                         <Link
                           href={`/category/${category.id}`} // Adjust the link accordingly
                           className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${usePathName === `/category/${category.id}`
-                              ? "text-primary dark:text-white"
-                              : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                            ? "text-primary dark:text-white"
+                            : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
                             }`}
                         >
                           {category.name}

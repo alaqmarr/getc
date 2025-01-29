@@ -5,20 +5,37 @@ import Image from "next/image";
 import { Metadata } from "next";
 import axios from "axios";
 
-export const metadata: Metadata = {
-  title: "Blog Details Page | Free Next.js Template for Startup and SaaS",
-  description: "This is Blog Details Page for Startup Nextjs Template",
-  // other metadata
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const query = await params;
+  const rsvpId = query.id;
 
-const BlogDetailsPage = async ({params}: {params: Promise<{id:string}>}) => {
-  const { id } = await params;
-const product = await axios.get(`https://mystore.alaqmar.dev/api/stellar-industries/products/${id}`);
-const productData = product.data;
+  const data = await axios.get(`https://mystore.alaqmar.dev/api/stellar-industries/products/${rsvpId}`);
 
-if (!productData) {
-  return <div>No products found</div>;
+  if (!data) {
+    return {
+      title: "Product not found",
+      description: "Product not found",
+    };
+  }
+
+  return {
+    title: data.data.name,
+    description: data.data.description || `Product ${data.data.name}`,
+  };
 }
+
+const BlogDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params;
+  const product = await axios.get(`https://mystore.alaqmar.dev/api/stellar-industries/products/${id}`);
+  const productData = product.data;
+
+  if (!productData) {
+    return <div>No products found</div>;
+  }
   return (
     <>
       <section className="pb-[120px] pt-[150px]">
@@ -43,9 +60,9 @@ if (!productData) {
                     </div>
                   </div>
                   <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                  <p dangerouslySetInnerHTML={{ __html: productData.description }}></p>
+                    <p dangerouslySetInnerHTML={{ __html: productData.description }}></p>
                   </p>
-                  
+
                   <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9">
                     <p className="text-center text-base font-medium italic text-body-color">
                       CONTACT US TODAY TO ENQUIRE ABOUT THIS PRODUCT
