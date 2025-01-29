@@ -15,7 +15,7 @@ const Hero = () => {
                   Stellar Industries
                 </h1>
                 <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
-                  We supply excellence in industrial solutions.
+                Your Goods, Our Stretch—Protection at Its Best.
                 </p>
                 <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                   <Link
