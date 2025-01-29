@@ -7,6 +7,7 @@ import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
 import { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
+import logo from "@/app/logo.png";
 
 export const metadata: Metadata = ({
   title: "Stellar Industries",
@@ -20,11 +21,11 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
+      <head>
+        <link rel="shortcut icon" href={logo.src} type="image/x-icon" />
+        <link rel="icon" href={logo.src} type="image/x-icon" />
+        <meta charSet="utf-8" />
+      </head>
 
       <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
         <Providers>
