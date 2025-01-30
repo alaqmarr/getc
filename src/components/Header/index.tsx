@@ -34,6 +34,7 @@ const Header = () => {
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNavbar);
   });
+  const [isOpen, setIsOpen] = useState(false);
 
   const usePathName = usePathname();
 
@@ -129,19 +130,29 @@ const Header = () => {
                         Contact
                       </Link>
                     </li>
-                    {categories.map((category, index) => (
-                      <li key={index} className="group relative">
-                        <Link
-                          href={`/category/${category.id}`} // Adjust the link accordingly
-                          className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${usePathName === `/category/${category.id}`
-                            ? "text-primary dark:text-white"
-                            : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
-                            }`}
-                        >
-                          {category.name}
-                        </Link>
-                      </li>
-                    ))}
+                    <div className="group relative">
+                      <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-md"
+                      >
+                        Products
+                      </button>
+
+                      {isOpen && (
+                        <ul className="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 shadow-lg rounded-md">
+                          {categories.map((category) => (
+                            <li key={category.id} className="border-b last:border-none">
+                              <Link
+                                href={`/category/${category.id}`}
+                                className="block px-4 py-2 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                              >
+                                {category.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   </ul>
                 </nav>
               </div>
