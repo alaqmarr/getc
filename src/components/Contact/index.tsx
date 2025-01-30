@@ -1,5 +1,7 @@
+"use client"
 import Link from "next/link";
 import NewsLatterBox from "./NewsLatterBox";
+import axios from "axios";
 
 const Contact = () => {
   return (
@@ -18,7 +20,22 @@ const Contact = () => {
               <p className="mb-12 text-base font-medium text-body-color">
                 or just email us at{" "}<Link href="mailto:sales@stellarindustries.in" className="underline font-bold">sales@stellarindustries.in</Link>
               </p>
-              <form>
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const post = await axios.post("https://mystore.alaqmar.dev/api/stellar-industries/contact-form", {
+                    name: e.target[0].value,
+                    email: e.target[1].value,
+                    message: e.target[2].value
+                  })
+
+                  if (post.status === 200) {
+                    alert("Message sent successfully")
+                  } else {
+                    alert("Message failed to send")
+                  }
+                }}
+              >
                 <div className="-mx-4 flex flex-wrap">
                   <div className="w-full px-4 md:w-1/2">
                     <div className="mb-8">
@@ -67,7 +84,7 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="w-full px-4">
-                    <button className="rounded-sm bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark">
+                    <button type="submit" className="rounded-sm bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark">
                       Submit
                     </button>
                   </div>
