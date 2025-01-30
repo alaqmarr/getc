@@ -12,12 +12,6 @@ import logo from "@/app/logo.png";
 export const metadata: Metadata = ({
   title: "Stellar Industries",
   description: "This is Home for Stellar Industries",
-  icons:
-  {
-    href: logo.src,
-    sizes: "192x192",
-    type: "image/png",
-  },
 })
 
 export default function RootLayout({
