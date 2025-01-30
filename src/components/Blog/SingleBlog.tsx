@@ -31,7 +31,14 @@ const SingleBlog = ({ blog }: { blog: { category: { name: string }, id: string, 
             >
               {
                 blog.description.length > 40
-                  ? `${<p dangerouslySetInnerHTML={{ __html: blog.description.substring(0, 20) }}></p>}...read more`
+                  ? <>
+                  <p
+                  dangerouslySetInnerHTML={{__html: blog.description.substring(0, 150)}}
+                  >
+
+                  </p>
+                  read more
+                  </>
                   : <p dangerouslySetInnerHTML={{ __html: blog.description }}></p>
               }
             </Link>
