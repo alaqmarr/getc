@@ -30,9 +30,9 @@ const SingleBlog = ({ blog }: { blog: { category: { name: string }, id: string, 
               className="hover:text-primary dark:hover:text-primary"
             >
               {
-                blog.description.length > 20
-                  ? `${blog.description.substring(0, 120)}.. view more`
-                  : blog.description
+                blog.description.length > 40
+                  ? `${<p dangerouslySetInnerHTML={{ __html: blog.description.substring(0, 20) }}></p>}...read more`
+                  : <p dangerouslySetInnerHTML={{ __html: blog.description }}></p>
               }
             </Link>
           </p>

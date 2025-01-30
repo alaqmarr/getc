@@ -25,11 +25,6 @@ export async function generateMetadata({
   return {
     title: data.data.name,
     description: data.data.description || `Product ${data.data.name}`,
-    icons : {
-      href: data.data.images[0].url,
-      sizes: "192x192",
-      type: "image/png",
-    }
   };
 }
 

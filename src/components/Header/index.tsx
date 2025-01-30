@@ -118,6 +118,17 @@ const Header = () => {
                         About Us
                       </Link>
                     </li>
+                    <li className="group relative">
+                      <Link
+                        href="/contact"
+                        className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${usePathName === `/contact`
+                          ? "text-primary dark:text-white"
+                          : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                          }`}
+                      >
+                        Contact
+                      </Link>
+                    </li>
                     {categories.map((category, index) => (
                       <li key={index} className="group relative">
                         <Link
