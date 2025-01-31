@@ -1,3 +1,5 @@
+export const fetchCache = 'force-no-store';
+export const revalidate = 0;
 import axios from "axios";
 import SectionTitle from "../Common/SectionTitle";
 import SingleBlog from "./SingleBlog";

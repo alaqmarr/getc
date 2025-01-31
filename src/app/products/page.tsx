@@ -1,3 +1,5 @@
+export const fetchCache = 'force-no-store';
+export const revalidate = 0;
 import SingleBlog from '@/components/Blog/SingleBlog';
 import axios from 'axios'
 import { Metadata } from 'next';
