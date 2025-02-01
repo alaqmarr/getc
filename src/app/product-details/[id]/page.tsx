@@ -56,7 +56,7 @@ const BlogDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) 
                     </div>
                   </div>
                   <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    <p dangerouslySetInnerHTML={{ __html: productData.description }}></p>
+                    <div dangerouslySetInnerHTML={{ __html: productData.description }} className="flex flex-col gap-y-6"></div>
                   </p>
 
                   <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9">
