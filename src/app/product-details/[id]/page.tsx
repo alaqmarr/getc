@@ -1,10 +1,10 @@
 import SharePost from "@/components/Blog/SharePost";
 import TagButton from "@/components/Blog/TagButton";
 import Image from "next/image";
-
 import { Metadata } from "next";
 import axios from "axios";
-
+import useEmblaCarousel from 'embla-carousel-react'
+import ImageCarousel from "@/components/ImageCarousel";
 export async function generateMetadata({
   params,
 }: {
@@ -14,6 +14,7 @@ export async function generateMetadata({
   const rsvpId = query.id;
 
   const data = await axios.get(`https://mystore.alaqmar.dev/api/stellar-industries/products/${rsvpId}`);
+
 
   if (!data) {
     return {
@@ -51,12 +52,7 @@ const BlogDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) 
                 <div>
                   <div className="mb-10 w-full overflow-hidden rounded">
                     <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
-                      <Image
-                        src={productData.images[0].url}
-                        alt="image"
-                        fill
-                        className="object-cover object-center"
-                      />
+                      <ImageCarousel data={productData.images}/>
                     </div>
                   </div>
                   <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
