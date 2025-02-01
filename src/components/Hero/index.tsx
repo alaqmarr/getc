@@ -1,6 +1,13 @@
+import axios from "axios";
 import Link from "next/link";
+import ImageCarousel from "../ImageCarousel";
 
-const Hero = () => {
+const Hero = async () => {
+  const products = await axios.get("https://mystore.alaqmar.dev/api/stellar-industries/products");
+  const data = products.data;
+  //combine all product images into one, poertly is data.images
+  const images = data.map((product) => product.images);
+  const allImages = images.flat();
   return (
     <>
       <section
@@ -17,6 +24,8 @@ const Hero = () => {
                 <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
                 Your Goods, Our Stretch—Protection at Its Best.
                 </p>
+              <ImageCarousel data={allImages}/>
+              <br/>
                 <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                   <Link
                     href="/products"
