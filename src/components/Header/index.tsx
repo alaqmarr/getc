@@ -16,7 +16,7 @@ const Header = () => {
     async function fetchCategories() {
       const res = await fetch("https://mystore.alaqmar.dev/api/stellar-industries/products");
       const data = await res.json();
-      const sortedCategories = data.sort((a, b) => a.name.localeCompare(b.name));
+      const sortedCategories = data.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
       setCategories(sortedCategories);
     }
     fetchCategories();
