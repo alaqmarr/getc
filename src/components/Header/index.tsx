@@ -14,7 +14,7 @@ const Header = () => {
 
   useEffect(() => {
     async function fetchCategories() {
-      const res = await fetch("https://mystore.alaqmar.dev/api/getc/products");
+      const res = await fetch("https://mystore.alaqmar.dev/api/getc/categories");
       const data = await res.json();
       const sortedCategories = data.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
       setCategories(sortedCategories);
@@ -169,7 +169,7 @@ const Header = () => {
                         onClick={() => setIsOpen(!isOpen)}
                         className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-md"
                       >
-                        Products
+                        Categories
                       </button>
 
                       {isOpen && (
@@ -177,7 +177,7 @@ const Header = () => {
                           {categories.map((category) => (
                             <li key={category.id} className="border-b last:border-none">
                               <Link
-                                href={`/product-details/${category.id}`}
+                                href={`/category/${category.id}`}
                                 onClick={closeNavbar} // Close navbar on click
                                 className="block px-4 py-2 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                               >
