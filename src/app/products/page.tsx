@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 const Products = async () => {
-  const api = await axios.get("https://mystore.alaqmar.dev/api/stellar-industries/products")
+  const api = await axios.get("https://mystore.alaqmar.dev/api/getc/products")
   const products = api.data;
   return (
     <section

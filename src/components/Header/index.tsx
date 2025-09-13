@@ -14,7 +14,7 @@ const Header = () => {
 
   useEffect(() => {
     async function fetchCategories() {
-      const res = await fetch("https://mystore.alaqmar.dev/api/stellar-industries/products");
+      const res = await fetch("https://mystore.alaqmar.dev/api/getc/products");
       const data = await res.json();
       const sortedCategories = data.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
       setCategories(sortedCategories);

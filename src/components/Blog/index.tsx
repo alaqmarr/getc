@@ -6,7 +6,7 @@ import SingleBlog from "./SingleBlog";
 import blogData from "./blogData";
 
 const Blog = async () => {
-  const request = await axios.get("https://mystore.alaqmar.dev/api/stellar-industries/products")
+  const request = await axios.get("https://mystore.alaqmar.dev/api/getc/products")
   const products = request.data;
   return (
     <section

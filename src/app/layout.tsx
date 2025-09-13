@@ -7,11 +7,11 @@ import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
 import { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
-import logo from "@/app/logo.png";
+import logo from "@/app/logo.jpg";
 
 export const metadata: Metadata = ({
-  title: "Stellar Industries",
-  description: "This is Home for Stellar Industries",
+  title: "General Engineering and Tools Centre",
+  description: "This is Home for General Engineering and Tools Centre",
 })
 
 export default function RootLayout({

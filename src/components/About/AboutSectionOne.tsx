@@ -1,5 +1,6 @@
 import Image from "next/image";
 import SectionTitle from "../Common/SectionTitle";
+import axios from "axios";
 
 const checkIcon = (
   <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -7,7 +8,8 @@ const checkIcon = (
   </svg>
 );
 
-const AboutSectionOne = () => {
+const AboutSectionOne = async () => {
+  const products = await axios.get("https://mystore.alaqmar.dev/api/getc/products")
   const List = ({ text }) => (
     <p className="mb-5 flex items-center text-lg font-medium text-body-color">
       <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
@@ -24,8 +26,8 @@ const AboutSectionOne = () => {
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4 lg:w-1/2">
               <SectionTitle
-                title="Welcome to Stellar Industries"
-                paragraph="Stretch films are an essential packaging material widely used across various industries for securing and protecting goods during transportation, storage, and handling. At Stellar Industries, we specialize in providing high-quality stretch films that ensure your products are protected efficiently, cost-effectively, and with minimal environmental impact."
+                title="Welcome to General Engineering and Tools Centre"
+                paragraph="We are gratified to enlighten you that we are one of the leading suppliers of hardware items. We carry with us years of experience in this line of business and over the years have carved excellent rapport in all Central Governments, State Government, Public Sectors etc, we are now on the process of expansion of business to a greater dimension."
                 mb="44px"
               />
 
@@ -35,19 +37,15 @@ const AboutSectionOne = () => {
               >
                 <div className="mx-[-12px] flex flex-wrap">
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Manual Stretch Film" />
-                    <List text="Machine Stretch Film" />
-                    <List text="Mini Stretch Film" />
-                    <List text="LDPE Shrink Film" />
-                    <List text="Cling Film" />
+                    {products.data.slice(0, Math.ceil(products.data.length / 2)).map((product, index) => (
+                      <List key={index} text={product.name} />
+                    ))}
                   </div>
 
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Pre-Stretched Film" />
-                    <List text="VCI Stretch Film" />
-                    <List text="Anti-Static Stretch Film" />
-                    <List text="UV Stretch Film" />
-                    <List text="Silage Stretch Film" />
+                    {products.data.slice(Math.ceil(products.data.length / 2)).map((product, index) => (
+                      <List key={index} text={product.name} />
+                    ))}
                   </div>
                 </div>
               </div>

@@ -18,12 +18,12 @@ const Contact = () => {
                 Contact us through the form below
               </h2>
               <p className="mb-12 text-base font-medium text-body-color">
-                or just email us at{" "}<Link href="mailto:sales@stellarindustries.in" className="underline font-bold">sales@stellarindustries.in</Link>
+                or just email us at{" "}<Link href="mailto:GETC87@GMAIL.COM" className="underline font-bold">GETC87@GMAIL.COM</Link>
               </p>
               <form
                 onSubmit={async (e) => {
                   e.preventDefault();
-                  const post = await axios.post("https://mystore.alaqmar.dev/api/stellar-industries/contact-form", {
+                  const post = await axios.post("https://mystore.alaqmar.dev/api/getc/contact-form", {
                     name: e.target[0].value,
                     email: e.target[1].value,
                     message: e.target[2].value

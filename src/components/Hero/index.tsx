@@ -3,7 +3,7 @@ import Link from "next/link";
 import ImageCarousel from "../ImageCarousel";
 
 const Hero = async () => {
-  const products = await axios.get("https://mystore.alaqmar.dev/api/stellar-industries/products");
+  const products = await axios.get("https://mystore.alaqmar.dev/api/getc/products");
   const data = products.data;
   //combine all product images into one, poertly is data.images
   const images = data.map((product) => product.images);
@@ -19,10 +19,10 @@ const Hero = async () => {
             <div className="w-full px-4">
               <div className="mx-auto max-w-[800px] text-center">
                 <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                  Stellar Industries
+                  General Engineering and Tools Centre
                 </h1>
                 <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
-                Your Goods, Our Stretch—Protection at Its Best.
+                TAGLINE
                 </p>
               <ImageCarousel data={allImages}/>
               <br/>

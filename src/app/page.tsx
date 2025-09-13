@@ -12,7 +12,7 @@ import Video from "@/components/Video";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Stellar Industries",
+  title: "General Engineering and Tools Centre",
   description: "",
   // other metadata
 };

@@ -13,7 +13,7 @@ export async function generateMetadata({
   const query = await params;
   const rsvpId = query.id;
 
-  const data = await axios.get(`https://mystore.alaqmar.dev/api/stellar-industries/products/${rsvpId}`);
+  const data = await axios.get(`https://mystore.alaqmar.dev/api/getc/products/${rsvpId}`);
 
 
   if (!data) {
@@ -31,7 +31,7 @@ export async function generateMetadata({
 
 const BlogDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
-  const product = await axios.get(`https://mystore.alaqmar.dev/api/stellar-industries/products/${id}`);
+  const product = await axios.get(`https://mystore.alaqmar.dev/api/getc/products/${id}`);
   const productData = product.data;
 
   if (!productData) {
