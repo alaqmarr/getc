@@ -52,7 +52,7 @@ const BlogDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) 
                 <div>
                   <div className="mb-10 w-full overflow-hidden rounded">
                     <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
-                      <ImageCarousel data={productData.images}/>
+                      <ImageCarousel data={productData.images} />
                     </div>
                   </div>
                   <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
@@ -60,9 +60,12 @@ const BlogDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) 
                   </p>
 
                   <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9">
-                    <p className="text-center text-base font-medium italic text-body-color">
-                      CONTACT US TODAY TO ENQUIRE ABOUT THIS PRODUCT
-                    </p>
+                    <a href={`https://wa.me/+919966099152?text=${encodeURI('Hello, I am interested in your product: ' + productData.name)}`} target="_blank" rel="noopener noreferrer">
+                      <p className="text-center text-base font-medium italic text-body-color">
+                        CLICK HERE TO ENQUIRE ABOUT THIS PRODUCT
+                      </p>
+
+                    </a>
                     <span className="absolute left-0 top-0 z-[-1]">
                       <svg
                         width="132"
