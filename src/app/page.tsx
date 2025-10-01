@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       <ScrollUp />
-      <Hero />
+      {/* <Hero /> */}
       {/* <Features /> */}
       {/* <Video /> */}
       {/* <Brands /> */}

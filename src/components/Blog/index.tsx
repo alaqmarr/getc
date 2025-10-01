@@ -6,8 +6,8 @@ import SingleBlog from "./SingleBlog";
 import blogData from "./blogData";
 
 const Blog = async () => {
-  const request = await axios.get("https://mystore.alaqmar.dev/api/getc/products")
-  const products = request.data;
+  const request = await fetch("https://mystore.alaqmar.dev/api/getc/products", { cache: "no-store" });
+  const products = await request.json();
   return (
     <section
       id="blog"
