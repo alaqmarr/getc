@@ -12,10 +12,10 @@ export default function GalleryPage() {
   );
 
   return (
-    <div className="p-6 sm:p-10 overflow-y-auto scroll-smooth">
+    <div className="overflow-y-auto scroll-smooth">
       <Breadcrumb pageName="Brands" description="Our trusted brand partners" />
 
-      <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-4 space-y-4">
+      <div className="p-6 columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-4 space-y-4">
         {images.map((img, index) => (
           <div
             key={index}
