@@ -154,6 +154,18 @@ const Header = () => {
                     </li>
                     <li className="group relative">
                       <Link
+                        href="/brands"
+                        onClick={closeNavbar} // Close navbar on click
+                        className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${usePathName === `/brands`
+                          ? "text-primary dark:text-white"
+                          : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                          }`}
+                      >
+                        Our Brands
+                      </Link>
+                    </li>
+                    <li className="group relative">
+                      <Link
                         href="/contact"
                         onClick={closeNavbar} // Close navbar on click
                         className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${usePathName === `/contact`
